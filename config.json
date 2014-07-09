@@ -6,12 +6,13 @@
 	}, 
 	"database" : {
 		"prefix" : "odb",
+		"algorithm" : "md5"
 	},
-	"valid" : [
+	"valid" : {
 		"127.0.0.0/8" : "valid",
 		"140.123.0.0/16" : "allow",
-		"140.123.101.0/24" : "valid",
-	],
+		"140.123.101.0/24" : "valid"
+	},
 	"misc" : {
 		"strict" : false
 	}
