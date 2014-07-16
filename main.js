@@ -83,7 +83,7 @@ app.post( '/oput', function( req, res) {
 	if( req.files.f) {
 		var files = req.files.f.path;
 		var rfd = fs.ReadStream( files);
-		var hashsum = crypto.createHash( database.algorithm);
+		var hashsum = crypto.createHash( database.algorithm).update( ( new Date().getTime()).toString());
 
 		rfd.on( 'data', function( d) {
 			hashsum.update( d);
@@ -227,7 +227,6 @@ app.post( '/opurge', function( req, res) {
 		fs.unlinkSync( CONFIG.database.prefix + "/" + del_pool.deleteHash[cnt][31] + "/" + del_pool.deleteHash[cnt]);
 		delete database[ del_pool.deleteHash[cnt]];
 		del_pool.deleteHash.splice( cnt, 1);
-		console.log( del_pool);
 	}
 	if( cnt != 0) {
 		database['lastUpdate'] = new Date().getTime();
