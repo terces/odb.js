@@ -122,8 +122,6 @@ app.post( '/oput', function( req, res) {
 					// set odb record
 					database[hashstr] = {
 						name: req.files.f.originalname,
-						size: req.files.f.size,
-						createTime: new Date().getTime(),
 						deleteFlag: false,
 						downloadCount: 0
 					};
